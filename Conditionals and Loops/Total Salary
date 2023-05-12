@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+	int basic =0;
+    int allow =0;
+    int totalSalary=0;
+    cin>>basic;
+    char grade;
+    cin>>grade;
+    if(grade=='A'){
+        allow = 1700;
+    }
+    else if(grade=='B'){
+        allow =1500;
+    }
+    else{
+        allow =1300;
+    }
+    totalSalary= basic +basic*0.2+basic*0.5+allow-basic*0.11+0.5;
+    cout<<totalSalary;
+    
+}
