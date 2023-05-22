@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+
+    /* Read input as specified in the question.
+	 * Print output as specified in the question.
+	 */
+  int n;
+    cin>>n;
+   
+    for(int j=2;j<=n;j++){
+         bool isPrime = true;
+    	for(int i=2;i<j;i++){
+        	if(j%i==0){
+                isPrime =false;
+				break;
+        	}
+    	}
+        if(isPrime==1){
+            cout<<j<<endl;
+        }
+        
+    }
+}
