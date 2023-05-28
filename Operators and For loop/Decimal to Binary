@@ -1,0 +1,25 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+long power(int n, int i){
+    long ans=1;
+    for(int j=1; j<=i;j++){
+        ans = ans*n;
+    }
+    return ans;
+}
+
+int main() {
+	// Write your code here
+	int n;
+    cin>>n;
+    int i=0;
+    long ans=0;
+    while(n!=0){
+        int bit = n%2;
+        ans = ans +bit*power(10,i);
+        i++;
+        n= n/2;
+    }
+    cout<<ans;
+}
