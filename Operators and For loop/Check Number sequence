@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	// Write your code here
+int n;
+    cin>>n;
+    int nprev, nnow;
+    cin>>nnow;
+    nprev = nnow;
+    bool check =false;
+    bool finalcheck =true;
+    int i=1;
+    while(i<n){
+        cin>>nnow;
+        if(nprev == nnow){
+			finalcheck = false;
+            break;
+        }
+		if(nprev <nnow){
+			check =true;
+        }
+        if(nprev > nnow && check){
+			finalcheck = false;
+            break;
+        }
+        nprev = nnow;
+        i++;
+    }
+    if(finalcheck){
+        cout<<"true";
+    }
+    else{
+    cout<<"false";
+        }
+}
