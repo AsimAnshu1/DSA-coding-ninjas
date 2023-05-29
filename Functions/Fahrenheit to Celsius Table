@@ -1,0 +1,7 @@
+void printTable(int start, int end, int step) {
+    while(start<=end){
+       int cel = (start-32)/1.800; 
+        cout<<start<<"\t"<<cel<<endl;
+		start = start+step;
+    }
+}
