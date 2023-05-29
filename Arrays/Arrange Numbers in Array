@@ -1,0 +1,14 @@
+void arrange(int *arr, int n){
+    int s =0; 
+    int e =n-1;
+    for(int i=1;s<=e;i++){
+		if(i%2==0){
+            arr[e]= i;
+            e--;
+        }
+        else{
+            arr[s] = i;
+            s++;
+        }
+    }
+}
