@@ -1,0 +1,11 @@
+void swapAlternate(int *arr, int size)
+{
+    //Write your code here
+    int s =0;
+    int e =1;
+    while(e<size){
+        swap(arr[s],arr[e]);
+        s=s+2;
+        e=e+2;
+    }
+}
