@@ -1,0 +1,18 @@
+void sortZeroesAndOne(int *input, int size)
+{
+    int s =0;
+    int e =size -1;
+    while(s<=e){
+		if(input[s]==1 && input[e]==0){
+			swap(input[s],input[e]);
+            s++;
+            e--;
+        }
+        if(input[s]==0){
+            s++;
+        }
+        if(input[e]== 1){
+            e--;
+        }
+    }
+}
