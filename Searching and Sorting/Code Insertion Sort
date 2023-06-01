@@ -1,0 +1,17 @@
+void insertionSort(int *input, int size)
+{
+    for(int i=1;i<size;i++){
+        int temp = input[i];
+        int j=i-1;
+        for(;j>=0;j--){
+			if(temp< input[j]){
+                    input[j+1] =input[j];
+                    
+        	}
+            else{
+                break;
+            }
+        }
+        input[j+1] = temp;
+    }
+}
