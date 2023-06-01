@@ -1,0 +1,9 @@
+int arrayRotateCheck(int *input, int size)
+{
+    for(int i=1;i<=size-1;i++){
+        if(input[i-1]>input[i] && input[i+1]>input[i] ){
+            return i;
+        }
+    }
+    return 0;
+}
