@@ -1,0 +1,27 @@
+void sumOfTwoArrays(int *input1, int size1, int *input2, int size2, int *output)
+{
+    int start1 =size1-1;
+    int start2 = size2-1;
+    int size3 =max(size1, size2)+1;
+    
+    int carry =0;
+    int num = 0;
+    for(int i=size3-1;i>=0;i--){
+        if(start1>=0&& start2>=0){
+           num = input1[start1] + input2[start2];
+        output[i]=num%10+carry;
+        carry = num/10; 
+        }
+		if(start1<0){
+            num = input2[start2];
+             output[i]=num%10+carry;
+        }
+        if(start2<0){
+			num = input1[start1];
+             output[i]=num%10+carry;
+        }
+        start1--;
+        start2--;
+        
+    }
+}
