@@ -1,0 +1,44 @@
+int length(char input[]){
+    int count =0;
+    for(int i=0;input[i]!='\0';i++){
+        count++;
+    }
+    return count;
+}
+void reverseString(char input[]){
+    int len = length(input);
+    int s=0, e = len-1;
+    while(s<=e){
+       int temp = input[s];
+        input[s]= input[e];
+        input[e]= temp;
+        s++;
+        e--;
+    }
+}
+int FirstSpace(char input[]){
+    int len = length(input);
+    for(int i=0;i<len;i++){
+		if(input[i]==' ' || input[i] == '\0'){
+			return i;
+        }
+    }
+}
+void reverseStringWordWise(char input[]) {
+    int len = length(input);
+    int k=0;
+    reverseString(input);
+    for(int i=0;i<len+1;i++){
+        if(input[i]==' ' || i==len){
+            int j = i-1;
+			while( j>=k){
+                int temp = input[k];
+            	input[k]= input[j];
+                input[j]= temp;
+                k++;
+                j--;
+        	}
+            k=i+1;
+        }
+    }  
+}
