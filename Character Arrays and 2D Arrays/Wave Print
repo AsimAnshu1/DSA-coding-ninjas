@@ -1,0 +1,24 @@
+void wavePrint(int **input, int nRows, int mCols)
+{
+    bool IorD =true;
+    for(int j=0;j<mCols;j++){
+       int i=0;
+        if(j%2==0){
+            i=0;
+            IorD =true;
+        }
+        else{
+            i= nRows-1;
+            IorD = false;
+        }
+        for(;i>=0 && i<nRows;){
+			cout<<input[i][j]<<" ";
+            if(IorD){
+                i++;
+            }
+            else{
+                i--;
+            }
+        }
+    }
+}
