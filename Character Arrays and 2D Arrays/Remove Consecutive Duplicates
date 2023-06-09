@@ -1,0 +1,16 @@
+void removeConsecutiveDuplicates(char input[]) {
+   	int len =strlen(input);
+    char temp[len];
+    int count =0;
+    int j=0;
+    temp[count]= input[0];
+    count++;
+    for(int i=1;input[i]!='\0';i++){
+        if(input[i]!= input[j]){
+            temp[count] = input[i];
+            count++;
+            j=i;
+        }
+    }
+    strcpy(input,temp);
+}
