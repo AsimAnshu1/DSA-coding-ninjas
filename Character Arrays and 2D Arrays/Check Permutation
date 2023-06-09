@@ -1,0 +1,17 @@
+bool isPermutation(char input1[], char input2[]) {
+     int temp[26]={0};
+    for(int i=0;input1[i]!='\0';i++){
+       int count= input1[i]-'a';
+		temp[count] = temp[count]+1;  
+    }
+    for(int i=0;input2[i]!='\0';i++){
+       int count= input2[i]-'a';
+		temp[count] = temp[count]-1;  
+    }
+    for(int i=0;i<26;i++){
+        if(temp[i]!=0){
+            return false;
+        }
+    }
+    return true;
+}
