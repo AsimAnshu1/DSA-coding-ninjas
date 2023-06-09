@@ -1,0 +1,16 @@
+void removeAllOccurrencesOfChar(char input[], char c) {
+    int len = strlen(input);
+    if(len == 0){
+        return;
+    }
+    char temp[len];
+    int count = 0;
+    for(int i=0;input[i]!='\0';i++){
+    	if(input[i]!=c){
+            temp[count] =input[i];
+            count++;
+        }
+    }
+    temp[count]='\0';
+    strcpy(input,temp);
+}
