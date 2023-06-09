@@ -1,0 +1,21 @@
+void reverse(char input[], int si, int ei)
+{
+	for(int i = si, j = ei; i < j; i++, j--)
+    {
+		char temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
+    }
+}
+void reverseEachWord(char input[]) {
+    int len=0;
+        int si = 0;
+    for(int i = 0; i <= strlen(input); i++)
+    {
+        if(input[i] == ' ' || input[i]=='\0' )
+        {
+			reverse(input, si, i - 1);
+            si = i + 1;
+        }
+    }
+}
