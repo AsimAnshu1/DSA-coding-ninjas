@@ -1,0 +1,8 @@
+int stringToNumber(char input[]) {
+    if(input[1]=='\0'){
+        return int(input[0]-'0');
+    }
+    int num= stringToNumber(input+1);
+    num = (input[0]-'0')*pow(10, )+num;
+  return num;
+}
