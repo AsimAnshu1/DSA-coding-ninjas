@@ -1,0 +1,12 @@
+int staircase(int n){
+if(n == 1 || n == 0 ){
+        return 1;
+    }
+    if(n < 0){
+        return 0;
+    }
+    int count = staircase(n-1);
+    count = count+ staircase(n-2);
+    count = count+ staircase(n-3);  
+    return count;
+}
