@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void helper(int num , string output){
+        if(num == 0){
+        cout<<output<<endl;
+        return ;
+    }
+    string mapping[] = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    int digit = num%10;
+    string output1 = mapping[digit][0]+ output;
+    string output2 = mapping[digit][1]+output;
+    string output3 =mapping[digit][2]+output;
+    string output4 = mapping[digit][3]+output;
+    helper(num/10, output1);
+    helper(num/10,output2);
+    helper(num/10,output3);
+     if(digit == 7 || digit ==9){
+		helper(num/10, output4);
+    } 
+}
+void printKeypad(int num){
+string output ="";
+   helper(num, output);
+}
