@@ -1,0 +1,52 @@
+void merge(int input[], int si, int mid, int ei){
+    if(si>=ei){
+        return ;
+    }
+    int arr[si+ei]= {0};
+    int i=si, j= mid+1, k=0;
+    while(i<=mid && j<=ei){
+        if(input[i]<=input[j]){
+            arr[k] = input[i];
+            i++;
+            k++;
+        }
+        else{
+            arr[k] =input[j];
+            j++;
+            k++;
+        }
+    }
+    while(i<=mid){
+        arr[k] =input[i];
+        i++;
+        k++;
+    }
+    while(j<=ei){
+        arr[k] = input[j];
+        j++;
+        k++;
+    }
+    for(int i=0;i<si+ei;i++){
+        input[i] =arr[i];
+    }
+}
+void mergeSorthelper(int input[], int si, int ei){
+    if(si>=ei){
+        return ;
+    }
+    int mid = (si+ei)/2;
+    mergeSorthelper(input, si, mid);
+    mergeSorthelper(input, mid+1, ei);
+    if(input[si]>input[si+1]){
+       int temp = input[si];
+        input[si] =input[si+1];
+        input[si+1] =temp;
+    }
+    merge(input, si, mid, ei);
+}
+void mergeSort(int input[], int size){
+	if(size==0 || size==1){
+        return ;
+    }
+    mergeSorthelper(input,0, size-1);
+}
