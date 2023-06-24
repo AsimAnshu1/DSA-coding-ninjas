@@ -1,0 +1,69 @@
+void merge(int input1[], int size1, int input2[], int size2){
+	int size =size1+size2;
+	int *arr = new int[size]; 
+    int i=0, j=0, k=0;
+	while(i<size1 && j < size2){
+        if(input1[i]<=input2[j]){
+			arr[k]= input1[i];
+            i++;
+            k++;
+        }
+        else if(input1[i]>input2[j]){
+            arr[k] =input2[j];
+            j++;
+            k++;
+        }
+    }
+    while(i<size1){
+        arr[k] = input1[i];
+        i++;
+        k++;
+    }
+    while(j<size2){
+        arr[k]= input2[j];
+        j++;
+        k++;
+    }
+    for(int i=0;i<size;i++){
+        input1[i]= arr[i];
+    }
+}
+
+void mergeSort(int input[], int size){
+    if(size== 0 || size== 1){
+        return ;
+    }
+    int si =0;
+    int ei =size-1;
+    int mid = si+(ei-si)/2;
+    mergeSort(input, mid+1);
+    mergeSort(input+mid+1, size-mid-1);
+    if(input[0]>input[1]){
+		int temp = input[0];
+		input[0] =  input[1];
+        input[1] = temp;
+    }
+    merge(input, mid+1, input+mid+1, size-mid-1);
+}
+void intersection(int *arr1, int *arr2, int n, int m) 
+{
+    if(n==0 || m==0){
+        return ;
+    }
+	mergeSort(arr1, n);
+    mergeSort(arr2, m);
+    int i=0, j=0;
+    while(i<n && j<m){
+        if(arr1[i] == arr2[j]){
+            cout<<arr1[i]<<" ";
+            i++;
+            j++;
+        }
+        else if(arr1[i]< arr2[j]){
+            i++;
+        }
+        else{
+            j++;
+        }
+    }
+}
