@@ -1,0 +1,13 @@
+void rotate(int *input, int d, int n)
+{
+    if(n==0|| d==0){
+		return ;        
+    }
+	int arr[n];
+    for(int i=0;i<n;i++){
+        arr[i]= input[(i+d)%n];
+    }
+    for(int i=0;i<n;i++){
+        input[i] = arr[i];
+    }
+}
