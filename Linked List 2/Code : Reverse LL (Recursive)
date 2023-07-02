@@ -1,0 +1,40 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+	        }
+        };
+
+*****************************************************************/
+class pair{
+	public :
+          Node * head;
+          Node * tail;
+};
+pair reverseLinkedListReclass(Node* head){
+		if(head==NULL || head->next ==NULL){
+			pair ans;
+			ans.head = head;
+			ans.tail =head;
+			return ans; 
+		}
+	pair SmallAns = reverseLinkedListReclass(head->next);
+	(SmallerAns.tail)->next = head;
+	head->next =NULL;
+	pair ans;
+	ans.head = SmallAns.head;
+	ans.tail = head;
+	return ans;
+}
+Node *reverseLinkedListRec(Node *head) {
+ return  reverseLinkedListReclass(head).head;
+}
