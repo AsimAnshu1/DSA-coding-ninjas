@@ -1,0 +1,58 @@
+/****************************************************************
+ 
+    Following is the class structure of the Node class:
+
+        class Node
+        {
+        public:
+	        int data;
+	        Node *next;
+	        Node(int data)
+	        {
+		        this->data = data;
+		        this->next = NULL;
+	        }
+        };
+
+*****************************************************************/
+Node *skipMdeleteN(Node *head, int M, int N)
+{
+	Node* sh =NULL;
+	Node* st =NULL;
+	Node* rh = NULL;
+	Node* rt = NULL;
+	if(M==0){
+		return NULL;
+	}
+	while(head!=NULL){
+		int countM=0;
+		while(countM<M&& head!=NULL){
+    	     if (rh == NULL) {
+                rh = head;
+                rt = head;
+				head= head->next;
+				countM++;
+              } else {
+    		         rt = rt ->next;
+					 head =head->next;
+					 countM++;
+                  }
+              }
+		int countN =0;
+		while(countN<N&& head!=NULL){
+			if(sh==NULL){
+				sh = head;
+				st = head;
+				head= head->next;
+				countN++;
+			}
+			else{
+				st = st->next;
+				head =head->next;
+				countN++;
+			}
+		}
+		rt->next = head;
+	}
+	return rh;
+}
