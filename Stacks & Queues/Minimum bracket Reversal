@@ -1,0 +1,48 @@
+#include <stack>
+int countBracketReversals(string input) {
+   if (input.length()%2!=0)
+        {
+            return -1;
+        }
+        stack<char> s;
+        int count=0;
+        for (int i=0;i<input.length();i++)
+        {
+            char c=input[i];
+            if (c=='{')
+            {
+                s.push(c);
+            }
+            else
+            {
+                if (s.empty())
+                {
+                    s.push(c);
+                }
+                else if (s.top()=='}')
+                {
+                    s.push(c);
+                }
+                else if (s.top()=='{')
+                {
+                    s.pop();
+                }
+            }
+        }
+        while(!s.empty())
+        {
+            char c1=s.top();
+            s.pop();
+            char c2=s.top();
+            s.pop();
+            if (c1==c2)
+            {
+                count=count+1;
+            }
+            else
+            {
+                count=count+2;
+            }
+        }
+        return count;
+	}
