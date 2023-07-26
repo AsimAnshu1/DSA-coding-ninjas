@@ -1,0 +1,38 @@
+/**********************************************************
+
+	Following is the Binary Tree Node class structure
+
+	template <typename T>
+	class BinaryTreeNode {
+    	public : 
+    	T data;
+    	BinaryTreeNode<T> *left;
+    	BinaryTreeNode<T> *right;
+
+    	BinaryTreeNode(T data) {
+        	this -> data = data;
+        	left = NULL;
+        	right = NULL;
+    	}
+	};
+
+***********************************************************/
+
+/*
+	The first value of the pair must be the minimum value in the tree and 
+	the second value of the pair must be the maximum value in the tree
+*/
+pair<int, int> getMinAndMax(BinaryTreeNode<int> *root) {
+	if(root == NULL){
+		pair<int, int> a;
+		a.first =1000;
+		a.second = -1000;
+		return a;
+	}
+	pair<int , int> leftAns=getMinAndMax(root->left);
+	pair<int,	int> rightAns= getMinAndMax(root->right);
+	pair<int, int> p;
+	p.first = min(leftAns.first,min(rightAns.first, root->data));
+	p.second = max(root->data,max(leftAns.second, rightAns.second)); 
+	return p;
+}
