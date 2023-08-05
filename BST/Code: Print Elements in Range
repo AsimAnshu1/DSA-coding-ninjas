@@ -1,0 +1,38 @@
+/**********************************************************
+
+	Following is the Binary Tree Node class structure
+
+	template <typename T>
+	class BinaryTreeNode {
+    	public : 
+    	T data;
+    	BinaryTreeNode<T> *left;
+    	BinaryTreeNode<T> *right;
+
+    	BinaryTreeNode(T data) {
+        	this -> data = data;
+        	left = NULL;
+        	right = NULL;
+    	}
+	};
+
+***********************************************************/
+
+void helper(BinaryTreeNode<int>* root, int a, int b){
+	if(root==NULL){
+		return;
+	}
+        helper(root->left, a ,b);
+        if (root->data >= b && root->data <= a) {
+			cout<<root->data<<" ";
+        }
+        helper(root->right, a,  b);
+}
+void elementsInRangeK1K2(BinaryTreeNode<int>* root, int k1, int k2) {
+        if (root == NULL) {
+          return;
+        }
+        int a = max(k1, k2);
+        int b = min(k1, k2);
+		helper(root,  a, b);
+}
